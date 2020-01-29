@@ -10,7 +10,7 @@
 
 import json
 import math
-a= input("Please enter the file name including the extension ")
+b= input("Please enter the audio file name")
 
 # function to format time for SRT file
 def format_time(time, format):
@@ -51,7 +51,7 @@ def stl_time(self):
     return time
 
 # Load JSON from Watson (replace watson.json with path to JSON file)
-str_data = open(a).read()
+str_data = open('watson-transcript.json').read()
 try:
     json_data = json.loads(str_data)
 except:
@@ -59,10 +59,10 @@ except:
     quit()
 
 # open subtitle files in write mode (overwrites if it already exists)
-f_srt = open('subtitles.srt','w')
-f_vtt = open('subtitles.vtt','w')
-f_stl = open('subtitles.txt','w')
-f_scc = open('subtitles.scc','w')
+f_srt = open(b + '.srt','w')
+f_vtt = open(b + '.vtt','w')
+f_stl = open(b + '.txt','w')
+f_scc = open(b + '.scc','w')
 
 # starts subtitle id counter for SRT file
 sub_id = 0
