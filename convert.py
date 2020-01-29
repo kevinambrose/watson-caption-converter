@@ -10,6 +10,7 @@
 
 import json
 import math
+a= input("Please enter the file name including the extension ")
 
 # function to format time for SRT file
 def format_time(time, format):
@@ -50,11 +51,11 @@ def stl_time(self):
     return time
 
 # Load JSON from Watson (replace watson.json with path to JSON file)
-str_data = open('watson.json').read()
+str_data = open(a).read()
 try:
     json_data = json.loads(str_data)
 except:
-    print "ERROR: The JSON is not formatted properly."
+    print ("ERROR: The JSON is not formatted properly.")
     quit()
 
 # open subtitle files in write mode (overwrites if it already exists)
@@ -120,8 +121,9 @@ for x in json_data["results"]:
                             tran_end = 0
                 sub_id += 1
                 tran_list.append([sub_id,custom_tran,tran_start,tran_end])
+                print("Done")
             except:
-                print 'ERROR: Cannot find timestamps in JSON. Please ensure word timestamps are enabled in Watson.'
+                print ('ERROR: Cannot find timestamps in JSON. Please ensure word timestamps are enabled in Watson.')
                 quit()
 
 
